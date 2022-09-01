@@ -38,7 +38,7 @@ def login_view(request):
             if user is not None:
                 msg = "로그인 성공"
                 login(request, user)
-                return redirect('/')
+                return redirect("/")
 
     else:
         form = LoginForm()
@@ -52,7 +52,7 @@ def logout_view(request):
 
 
 # TODO: 8. user 목록은 로그인 유저만 접근 가능하게 해주세요
-@login_required
+@login_required(login_url="/login/")
 def user_list_view(request):
     # TODO: 7. /users 에 user 목록을 출력해주세요
     # TODO: 9. user 목록은 pagination이 되게 해주세요
